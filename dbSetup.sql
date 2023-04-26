@@ -43,3 +43,22 @@ WHERE id = 4;
 DELETE FROM cars WHERE id = 1 ;
 
 DROP TABLE cars;
+
+
+CREATE TABLE IF NOT EXISTS houses(
+  id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  bedrooms TINYINT NOT NULL,
+  bathrooms TINYINT NOT NULL,
+  levels TINYINT NOT NULL,
+  imgUrl VARCHAR(1000) NOT NULL,
+  year SMALLINT NOT NULL,
+  description VARCHAR(500) NOT NULL,
+  price MEDIUMINT NOT NULL, 
+  isSold BOOLEAN NOT NULL DEFAULT false,
+  createdAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updatedAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) default charset utf8mb4 COMMENT 'first time in here';
+
+INSERT INTO houses(bedrooms, bathrooms, levels, imgUrl, year, description, price, isSold)
+values(3, 3, 3, 'https://images.unsplash.com/photo-1523217582562-09d0def993a6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8aG91c2V8ZW58MHx8MHx8&auto=format&fit=crop&w=1000&q=60', 2023, 'If you feel like square you should check this fantastic house', 1500000, false) ;
+
